@@ -1,36 +1,29 @@
 class Song < ActiveRecord::Base
-  validates :title, presence: true
 
-  def same_artist_and_year
-    @title  = :title
-    binding.pry
+  validates :title, presence: true
+  validates :title, uniqueness: {
+    scope: :release_year, message: "cannot have same title in same year"
+  }
+  validates :artist_name, presence: true
+  validates :released, inclusion: { in: [true, false] }
+  validate :release_year_legit
+
+  def release_year_legit
+    if released && !release_year
+      errors.add(:release_year, "Must include release year")
+    elsif released && release_year
+      if release_year > Time.now.year
+        errors.add(:release_year, "Must not be in future")
+      end
+    elsif !released && release_year
+      errors.add(:release_year, "Released must be true")
+    end
   end
-  
 
 end
 
+# Way better than release_year_legit
 
-
-
-# validates :title, presence: true
-#   validates :content, length: { minimum: 100 }
-#   validates :category, inclusion: { in: %w(Fiction Non-Fiction) }
-
-# Cannot be repeated by the same artist in the same year
-
-# class Computer < ApplicationRecord
-#   validates :mouse, presence: true,
-#                     if: [Proc.new { |c| c.market.retail? }, :desktop?],
-#                     unless: Proc.new { |c| c.trackpad.present? }
-# end
-
-
-# class Order < ApplicationRecord
-#   validates :card_number, presence: true, if: :paid_with_card?
-#
-#   def paid_with_card?
-#     payment_type == "card"
+# with_options if: :released do |r|
+#     r.validates :release_year, presence: true, numericality: { less_than_or_equal_to: Date.today.year}
 #   end
-# end
-#
-# def same
