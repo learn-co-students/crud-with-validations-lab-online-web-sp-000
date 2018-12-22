@@ -6,8 +6,14 @@ class Song < ActiveRecord::Base
   validates :artist_name, presence: true
   validate :one_song_per_artist_per_year
   
+  @@c = 0
+  
   def one_song_per_artist_per_year
-    artist_songs = Song.where(artist_name == self.artist_name)
-    binding.pry
+    @@c += 1
+    artist_songs = Song.where("artist_name = '#{self.artist_name}'")
+    if artist_songs.map{|s| s.release_year}.include?(self.release_year)
+      self.errors[:base] << "#{self.artist_name} already has a song released in #{self.release_year}"
+    end
+    # binding.pry if @@c == 7
   end
 end
