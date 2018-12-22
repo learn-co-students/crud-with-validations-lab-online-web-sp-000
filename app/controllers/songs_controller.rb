@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+  before_action :find_instance, only: [:show, :edit, :update, :destroy]
+
   def index
     
   end
@@ -26,4 +28,9 @@ class SongsController < ApplicationController
   def destroy
     
   end
+
+  def find_instance
+    @song = Song.find(params[:id])
+  end
+
 end
