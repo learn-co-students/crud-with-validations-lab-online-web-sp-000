@@ -10,7 +10,6 @@ class SongsController < ApplicationController
   end
 
   def new
-    binding.pry
     @song = Song.new
   end
 
@@ -25,11 +24,15 @@ class SongsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
-    redirect_to song_path(@song)
+    @song.update(song_params)
+    if @song.valid? 
+      redirect_to song_path(@song)
+    else
+      render :edit
+    end
   end
 
   def destroy
