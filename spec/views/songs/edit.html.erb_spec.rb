@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe 'songs/edit', type: :feature do
   let(:song_attributes) do
     {
@@ -14,7 +16,7 @@ RSpec.describe 'songs/edit', type: :feature do
   it 'renders the edit song form' do
     visit edit_song_path(song)
 
-    form = find('form')
+    form = all('form').first
 
     expect(form[:action]).to eq(song_path(song))
     expect(form.find('input#song_title').value).to eq(song.title)
@@ -22,5 +24,12 @@ RSpec.describe 'songs/edit', type: :feature do
     expect(form.find('input#song_released')).to be_checked
     expect(form.find('input#song_genre').value).to eq(song.genre)
     expect(form.find('input#song_artist_name').value).to eq(song.artist_name)
+  end
+
+  it "allows a song to be deleted" do
+    visit edit_song_path(song)
+    click_on 'Delete Song'
+    expect(Song.all.count).to eq(0)
+    expect(page).to have_content("All Songs")
   end
 end
