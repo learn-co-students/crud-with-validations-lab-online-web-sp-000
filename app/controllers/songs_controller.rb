@@ -6,7 +6,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    
+    redirect_to edit_song_path(@song)
   end
 
   def new

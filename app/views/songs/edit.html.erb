@@ -5,4 +5,4 @@
 
 
 <%= button_to "Delete Song", { action: "destroy", id: @song.id },
-                                method: :delete %>
+                                method: :delete,  data: { confirm: "Are you sure?" } %>
