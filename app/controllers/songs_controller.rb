@@ -31,12 +31,12 @@ class SongsController < ApplicationController
     if @song.valid? 
       redirect_to song_path(@song)
     else
-      render :edit
+      render :edit¢
     end
   end
 
   def destroy
-    @song.destroy
+    @song.delete
     redirect_to songs_path
   end
 

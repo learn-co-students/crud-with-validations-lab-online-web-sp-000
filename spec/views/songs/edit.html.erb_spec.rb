@@ -25,4 +25,11 @@ RSpec.describe 'songs/edit', type: :feature do
     expect(form.find('input#song_genre').value).to eq(song.genre)
     expect(form.find('input#song_artist_name').value).to eq(song.artist_name)
   end
+
+  it "allows a song to be deleted" do
+    visit edit_song_path(song)
+    click_on 'Delete Song'
+    expect(Song.all.count).to eq(0)
+    expect(page).to have_content()
+  end
 end

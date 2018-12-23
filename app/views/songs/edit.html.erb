@@ -3,3 +3,6 @@
 <%= render partial:"partials/errors" %>
 <%= render partial:"partials/form" %>
 
+
+<%= button_to "Delete Song", { action: "destroy", id: @song.id },
+                                method: :delete %>
