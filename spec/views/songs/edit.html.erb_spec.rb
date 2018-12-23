@@ -16,7 +16,7 @@ RSpec.describe 'songs/edit', type: :feature do
   it 'renders the edit song form' do
     visit edit_song_path(song)
 
-    form = find('form')
+    form = all('form').first
 
     expect(form[:action]).to eq(song_path(song))
     expect(form.find('input#song_title').value).to eq(song.title)
@@ -30,6 +30,6 @@ RSpec.describe 'songs/edit', type: :feature do
     visit edit_song_path(song)
     click_on 'Delete Song'
     expect(Song.all.count).to eq(0)
-    expect(page).to have_content()
+    expect(page).to have_content("All Songs")
   end
 end
