@@ -25,8 +25,7 @@
         <td>
           <%= link_to 'View', song %> |
           <%= link_to 'Edit', edit_song_path(song) %> |
-
-          <%= button_to("Delete", { action : "delete", id: song.id }, method: :delete, data: { confirm: "Are you sure? " }) %>
+          <%= button_to("Delete", { action: "destroy", id: song.id }, method: :delete, data: { confirm: "Are you sure? " }) %>
         </td>
       </tr>
     <% end %>
