@@ -1,0 +1,15 @@
+<h1>Index#Songs</h1>
+<td><%= link_to 'Create Song', new_song_path %></td>
+<br />
+<br />
+<table>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.title, song %></td>
+        <td><%= link_to 'Edit', edit_song_path(song) %></td>
+        <td><%= button_to("Delete", { action: "destroy", id: song.id }, method: :delete, data: { confirm: "Are you sure you want to delete this song?" }) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
