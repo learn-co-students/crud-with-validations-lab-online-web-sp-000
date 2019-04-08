@@ -1,0 +1,7 @@
+<h2><%= @song.title %></h2>
+
+<p>Title: <%= @song.title %></p>
+<p>Artist: <%= @song.artist_name %></p>
+<p>Genre: <%= @song.genre %></p>
+<p>Year Released: <%= @song.release_year %></p>
+<%= button_to "Edit Song", edit_song_path(@song), {action: 'get', method: :get} %>
