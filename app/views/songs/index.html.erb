@@ -1,0 +1,22 @@
+<h1> Here's a Frackin Songs Table </h1>
+<table>
+  <tbody>
+  <tr>
+    <th>Title</th>
+    <th>Released?</th>
+    <th>Release Year</th>
+    <th>Artist Name</th>
+    <th>Genre</th>
+  </tr>
+  <tr>
+    <% @songs.each do |song| %>
+    <td><%= link_to "#{song.title}", song_path(song) %></td>
+    <td><%= song.released %></td>
+    <td><%= song.release_year %></td>
+    <td><%= song.artist_name %></td>
+    <td><%= song.genre %></td>
+    <td><%= button_to "Delete", { action: "destroy", id: song.id }, method: :delete, data: { confirm: "Really?" } %></td>
+    <% end %>
+  </tr>
+  </tbody>
+</table>
