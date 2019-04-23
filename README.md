@@ -1,3 +1,5 @@
+rails g resource Song title:string released:boolean release_year:integer artist_name:string genre:string --no-test-framework
+
 # CRUD With Validations Lab
 
 Your goal in this lab is to create a thorough CRUD interface for one model, the
@@ -29,7 +31,7 @@ Use the `resource` generator, **not** the `scaffold` generator
 
 2.  Define all RESTful routes for songs
 
-3.  Build views that connect to each other using route helpers. 
+3.  Build views that connect to each other using route helpers.
 
 4.  Use `button_to` to build forms with pre-fill and error list features. (_Hint:
     Try using a partial to cut down on copy/pasting!_)
