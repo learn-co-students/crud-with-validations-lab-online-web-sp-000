@@ -8,7 +8,7 @@ class Song < ApplicationRecord
   validates :artist_name, presence: true
 
   def same_song_same_year
-    if Song.all.detect{|previous_song| previous_song.name == name && previous_song.release_year == release_year}
+    if Song.all.detect{|previous_song| previous_song.title == title && previous_song.release_year == release_year}
       errors.add(:title, "was already released this year")
     end
   end
@@ -17,7 +17,7 @@ class Song < ApplicationRecord
     if released
       if release_year.nil?
         errors.add(:release_date, "must be provided if it is released")
-      else release_year > Time.new.year
+      elsif release_year > Time.new.year
         errors.add(:release_date, "cannot be in the future")
       end
     end
