@@ -7,10 +7,8 @@
 </head>
 <body>
 
-<%= yield %>
-<% unless current_page?(controller: "songs", action: "index") %>
-  <%= link_to "View All Songs", songs_path %>
-<% end %>
+  <%= yield %>
 
+  <%=  javascript_include_tag "application", "songs" %>
 </body>
 </html>
