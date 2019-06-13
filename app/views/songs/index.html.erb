@@ -7,6 +7,7 @@
       <th>Artist Name</th>
       <th>Genre</th>
       <th>Release Year</th>
+      <th>links</th>
     </tr>
   </thead>
   <tbody>
@@ -15,9 +16,16 @@
         <td><%=song.title%></td>
         <td><%=song.artist_name%></td>
         <td><%=song.genre%></td>
+        <td>
         <% if song.released %>
-          <td><%=song.release_year%></td>
+          <%=song.release_year%>
         <% end %>
+        </td>
+        <td>
+          <%= link_to("song", song_path(song)) %>
+          <%= link_to("edit", edit_song_path(song)) %>
+          <%= link_to 'Delete', song, method: :delete, data: { confirm: 'For real?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
