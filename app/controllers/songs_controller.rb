@@ -12,7 +12,6 @@ class SongsController < ApplicationController
     end
 
     def create
-        # binding.pry
         @song = Song.new(strong_params(:title, :artist_name, :release_year, :released, :genre))
 
         if @song.valid?
