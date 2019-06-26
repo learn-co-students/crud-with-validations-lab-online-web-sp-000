@@ -1,0 +1,44 @@
+<h1>My Songs</h1>
+<hr>
+<% @songs.each do |song| %>
+    <ul>
+        <li>
+            <h3><%= link_to song.title, song_path(song) %> by: <%= song.artist_name %></h3>
+            <p>posted: <%= song.created_at %></p>
+        </li>
+    </ul>
+<% end %>
+<br>
+<br>
+<h1>Flatiron Songs</h1>
+<hr>
+<div><%= link_to 'Create Song', new_song_path %></div>
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Genre</th>
+      <th>Artist name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.title %></td>
+        <td><%= song.release_year %></td>
+        <td><%= song.genre %></td>
+        <td><%= song.artist_name %></td>
+        <td>
+          <%= link_to 'View', song %> |
+          <%= link_to 'Edit', edit_song_path(song) %> |
+          <%= link_to 'Delete', song, method: :delete, data: { confirm: 'For real?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
