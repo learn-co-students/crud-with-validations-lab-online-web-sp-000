@@ -1,15 +1,19 @@
 <h1>Songs</h1>
 <table>
-  <thead>
+    <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Genre</th>
     </tr>
-  </thead>
-<tbody>
-    <% @songs.each do |song| %>
-        <div><%= link_to song.title, song_path(song) %></div>
-    <% end%>
-</tbody>
+    </thead>
+    <tbody>
+        <% @songs.each do |song| %>
+        <tr>
+            <td><%= link_to song.title, song_path(song) %></td>
+            <td><%= song.artist_name %></td>
+            <td><%= song.genre %></td>
+        </tr>
+        <% end%>
+    </tbody>
 </table>
