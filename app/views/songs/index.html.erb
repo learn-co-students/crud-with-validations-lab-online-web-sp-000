@@ -1,0 +1,37 @@
+<h1>Welcome to Fyah beatz</h1>
+
+ <table>
+   <thead>
+    <tr>
+      <th>
+    Song Title
+    </th>
+    <th>
+    Song released
+  </th>
+  <th>
+   Song Artist Name
+ </th>
+    <th>
+   Song Genre
+    </th>
+    </tr>
+   </thead>
+   <tbody>
+   <% @songs.each do |song| %>
+   <tr>
+   <tr>
+   <ul>
+   <td>  <%= song.title %> </td>
+   <td>  <%=  song.released %> </td>
+    <td> <%=  song.release_year %> </td>
+    <td> <%=  song.artist_name %> </td>
+    <td> <%=  song.genre %>  </td>
+    <td> <%= link_to "Destroy", song, method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </ul>
+    </tr>
+    </tr>
+    </tbody>
+   <% end%>
+
+ </table>
