@@ -24,6 +24,14 @@ class SongsController < ApplicationController
   def edit
   end
 
+  def update
+    if @song.update(song_params(params[:song].keys))
+      redirect_to @song
+    else
+      render 'edit'
+    end
+  end
+
   private
     def song_params(*args)
       params.require(:song).permit(*args)
