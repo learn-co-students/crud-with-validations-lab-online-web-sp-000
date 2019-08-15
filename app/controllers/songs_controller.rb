@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:show, :edit, :update]
+  before_action :set_song, only: [:show, :edit, :update, :delete]
   
   def new
     @song = Song.new
@@ -30,6 +30,11 @@ class SongsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    Song.find(params[:id]).destroy
+    redirect_to songs_url
   end
 
   private
