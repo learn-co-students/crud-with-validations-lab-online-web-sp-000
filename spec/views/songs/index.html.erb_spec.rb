@@ -1,3 +1,4 @@
+require 'rails_helper'
 RSpec.describe 'songs/index', type: :feature do
   let(:song_attributes_1) do
     {
@@ -18,7 +19,7 @@ RSpec.describe 'songs/index', type: :feature do
       artist_name: 'Man With Instruments'
     }
   end
-
+  
   before { Song.create!([song_attributes_1, song_attributes_2]) }
 
   it 'renders a list of songs' do
