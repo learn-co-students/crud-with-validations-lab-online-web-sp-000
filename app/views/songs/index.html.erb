@@ -1,0 +1,18 @@
+<h1>Songs</h1>
+
+<table>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.genre %></td>
+        <td><%= song.artist_name %></td>
+        <td><%= song.title %></td>
+        <td><%= song.release_year %></td>
+        <td>
+          <%= button_to 'Edit', edit_song_path(song)%>
+          <%= button_to 'Delete', song_path(song)%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
