@@ -7,14 +7,14 @@ class Song < ActiveRecord::Base
   validates :genre, presence: true
 
   def is_released?
-    if release_year.present? && release_year < Date.today.year
+    if release_year.present? && release_year > Date.today.year
       errors.add(:release_year, "Release year can't be in the future")
     end
   end
 
   def unique_title
     if Song.any? {|s| s.title == title && s.artist_name == artist_name && s.release_year == release_year}
-      errors.add(:title, "no duplicate titles")
+      errors.add(:title, "No duplicate titles")
     end
   end
 end
