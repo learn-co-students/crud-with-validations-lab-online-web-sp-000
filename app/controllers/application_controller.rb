@@ -1,5 +1,50 @@
-class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+class SongsController < ApplicationController
+  def index
+    @songs = Song.all
+  end
+
+  def show
+    @song = Song.find(params[:id])
+  end
+
+  def new
+    @song = Song.new
+  end
+
+  def create
+    @song = Song.new(song_params(:title, :released,
+                                 :release_year, :artist_name, :genre))
+    if @song.valid?
+      @song.save
+      redirect_to song_path(@song)
+    else
+      render :new
+    end
+  end
+
+  def update
+    @song = Song.find(params[:id])
+    @song.update(song_params(:title, :released,
+                             :release_year, :artist_name, :genre))
+    if @song.valid?
+      redirect_to song_path(@song)
+    else
+      render :edit
+    end
+  end
+
+  def edit
+    @song = Song.find(params[:id])
+  end
+
+  def destroy
+    Song.find(params[:id]).delete
+    redirect_to songs_path
+  end
+
+  private
+
+  def song_params(*args)
+    params.require(:song).permit(*args)
+  end
 end
