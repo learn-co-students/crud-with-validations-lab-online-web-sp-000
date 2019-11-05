@@ -16,7 +16,7 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     if @song.valid?
       @song.save!
-      redirect_to songs_path(@song)
+      redirect_to song_path(@song)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class SongsController < ApplicationController
     @song = Song.find_by_id(params[:id])
     if @song.update(song_params)
       @song.update(song_params)
-      redirect_to songs_path(@song)
+      redirect_to song_path(@song)
     else
       render :edit
     end
