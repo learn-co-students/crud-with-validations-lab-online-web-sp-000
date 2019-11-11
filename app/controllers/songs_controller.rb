@@ -20,7 +20,7 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
-    #@song = Song.find(params[:id])
+    @song = Song.find(params[:id])
   end
 
   # POST /songs
