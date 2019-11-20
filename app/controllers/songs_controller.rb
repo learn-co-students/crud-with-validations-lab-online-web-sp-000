@@ -7,14 +7,18 @@ class SongsController < ApplicationController
     end 
 
     def index 
-        @songs = Song.all 
+        @songs = Song.all
     end 
 
     def create 
         @song = Song.new(song_params)
         if @song.valid?
-            @song.save
-            redirect_to song_path(@song)
+            if @song.released == true && @song.release_year != "" 
+                    @song.save
+                    redirect_to song_path(@song)
+            else 
+                render :new 
+            end 
         else 
             render :new 
         end 
@@ -26,14 +30,24 @@ class SongsController < ApplicationController
 
     def edit 
         @song = Song.find(params[:id])
-        binding.pry 
+    end 
+
+    def update 
+        @song = Song.find(params[:id])
         @song.update(song_params)
         if @song.valid?
             @song.save 
+            redirect_to song_path(@song)
         else 
             render :edit 
         end 
+
+    def destroy 
+        Song.find(params[:id]).destroy 
+        redirect_to songs_path 
     end 
+
+end 
 
 
 
