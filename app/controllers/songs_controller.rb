@@ -3,7 +3,12 @@ class SongsController < ApplicationController
 
 
     def new 
-        @song = Song.new(song_params)
+        @song = Song.new
+        @song.title = params[:title]
+        @song.released = params[:released]
+        @song.artist_name = params[:artist_name]
+        @song.release_year = params[:release_year]
+        @song.genre = params[:genre]
     end 
 
     def index 
@@ -12,13 +17,9 @@ class SongsController < ApplicationController
 
     def create 
         @song = Song.new(song_params)
-        if @song.valid?
-            if @song.released == true && @song.release_year != "" 
-                    @song.save
-                    redirect_to song_path(@song)
-            else 
-                render :new 
-            end 
+        if @song.valid? 
+            @song.save
+            redirect_to song_path(@song)
         else 
             render :new 
         end 
@@ -48,13 +49,6 @@ class SongsController < ApplicationController
     end 
 
 end 
-
-
-
-
-
-
-
 
 
     private 
