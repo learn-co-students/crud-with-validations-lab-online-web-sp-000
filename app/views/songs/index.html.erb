@@ -1,8 +1,12 @@
 <h1>Songs index</h1>
-<% @songs.each do |s| %>
-  <div>Song ID: <%= s.id %></div><br>
-  <div>Title: <%= s.title %></div><br>
-  <div>Released: <%= s.released %></div><br>
-  <div>Artist Name: <%= s.artist_name %></div><br>
-  <div>Genre: <%= s.genre %></div><br><br>
-<% end %>
+<tbody>
+  <% @songs.each do |s| %>    
+    <tr>
+      <div>Song ID: <%= s.id %></div><br>
+      <div>Title: <%= s.title %></div><br>
+      <div>Released: <%= s.released %></div><br>
+      <div>Artist Name: <%= s.artist_name %></div><br>
+      <div>Genre: <%= s.genre %></div><br><br>
+    </tr>
+  <% end %>
+</tbody>
