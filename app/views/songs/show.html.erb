@@ -1,0 +1,13 @@
+<h1>Showing selected song</h1>
+
+<p>Title: <%= @song.title %></p>
+<p>Released?: <%= @song.released %></p>
+<p>Artist: <%= @song.artist_name %></p>
+<p>Release Year: <%= @song.release_year %></p>
+<p>Genre: <%= @song.genre %></p>
+
+
+
+<%= link_to "Back to songs listing", songs_path %> 
+<br/>
+<%= link_to "Edit this song", edit_song_path(@song) %> 
