@@ -1,7 +1,10 @@
+<h1>Index</h1>
 <% @songs.each do |song| %>
     <div class="song">
-      <ul><li><span><%= song.title %></span></li>
+      <ul><li><span><%= link_to song.title, song_path(song) %></span></li>
+        <%= link_to "Delete", song, method: :delete, data: { confirm: "Really?" } %>
       </ul>
-      <%= link_to "Delete", song, method: :delete, data: { confirm: "Really?" } %>
+
     </div>
 <% end %>
+<%= link_to "New", 'songs/new' %>
