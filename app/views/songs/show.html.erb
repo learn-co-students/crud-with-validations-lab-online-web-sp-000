@@ -7,10 +7,9 @@ Artist Name:
 Genre:
 <%= @song.genre %><br>
 
-<%= link_to "Edit", edit_song_path(@song) %>
+<%= link_to "BACK", '/' %>
+<%= link_to "Edit", edit_song_path(@song) %><br>
 
 <%= form_tag song_path(@song.id), method: "delete" do %>
-  <%= submit_tag "Delete #{@song.title}" %><br>
+  <%= submit_tag "Delete" %><br>
   <% end %>
-
-  <%= link_to "BACK", '/' %>
