@@ -20,9 +20,9 @@
 
   <div class="field<%= ' field_with_errors' if @song.errors[:released].any? %>">
     <%= radio_button_tag(:released, "true") %>
-    <%= label_tag(:released_true, "It was released to the public") %>
+    <%= label_tag(:released, "It was released to the public") %>
     <%= radio_button_tag(:released, "false") %>
-    <%= label_tag(:released_false, "never released") %>
+    <%= label_tag(:released, "never released") %>
   </div>
 
   <div class="field<%= ' field_with_errors' if @song.errors[:release_year].any? %>">
