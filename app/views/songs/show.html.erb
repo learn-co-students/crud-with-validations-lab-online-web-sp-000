@@ -20,7 +20,7 @@
 <br>
 <%= link_to "Back", '/' %><br>
 <%= link_to "Edit", edit_song_path(@song) %><br>
-
+<br>
 
 <%= form_tag song_path(@song.id), method: "delete" do %>
   <%= submit_tag "Delete" %><br>
