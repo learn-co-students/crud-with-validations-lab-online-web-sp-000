@@ -1,7 +1,7 @@
 <h1>Editor</h1><br>
 
 <h2>Edit a Song</h2>
-<%= form_tag songs_path, method: "song" do %>
+<%= form_tag song_path(@song), method: "patch" do %>
 <% if @song.errors.any? %>
   <div id="error_explanation">
     <h2>There were some errors:</h2>

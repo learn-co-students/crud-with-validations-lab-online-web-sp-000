@@ -2,6 +2,7 @@
 <% @songs.each do |song| %>
     <div class="song">
       <ul><li><span><%= link_to song.title, song_path(song) %></span></li>
+        <span>by <%= song.artist_name %></span>
       </ul>
 
     </div>
