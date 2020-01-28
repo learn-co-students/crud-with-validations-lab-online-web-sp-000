@@ -1,10 +1,16 @@
-<%= @songs.each do |s| %>
-  <h2><%= s.title %></h2><br>
-  <h3>Artist: <%= s.artist_name %></h3><br>
-  <% if released %>
-    <h3>Released: <%= s.release_year %></h3><br>
-  <% else %>
-    <h3>Unreleased</h3><br>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Artist Name</th>
+    <th>Release Year</th>
+    <th>Genre</th>
+  </tr>
+  <% @songs.each do |s| %>
+    <tr>
+      <td><%= s.title %></td><br>
+      <td><%= s.artist_name %></td><br>
+      <td><%= s.release_year %></td><br>
+      <td><%= s.genre %></td><br><br>
+    </tr>
   <% end %>
-  <h3>Genre: <%= s.genre %></h3><br><br>
-<% end %>
+</table>
