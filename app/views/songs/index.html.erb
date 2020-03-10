@@ -1,0 +1,15 @@
+<h1>List of Songs!</h1>
+<table>
+  <thead><th>Song Name</th><th>Artist</th><th>Genre</th><th></th><th></th></thead>
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= link_to song.title, song%></td>
+        <td><%= song.artist_name %></td>
+        <td><%= song.genre %></td>
+        <td><%= link_to "Edit Song", edit_song_path(song) %></td>
+        <td><%= link_to "Delete Song", song_path(song), method: :delete%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
