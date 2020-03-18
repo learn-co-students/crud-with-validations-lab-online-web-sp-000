@@ -1,0 +1,7 @@
+<ul>
+  <li><%= @song.title %></li>
+  <li><%= @song.released ? "Released" : "Not Released" %></li>
+  <li><%= @song.released ? @song.release_year.to_s : "No Release Date" %></li>
+  <li><%= @song.artist_name %></li>
+  <li><%= @song.genre %></li>
+<ul>
