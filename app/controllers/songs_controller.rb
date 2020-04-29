@@ -11,11 +11,18 @@ class SongsController < ApplicationController
     else
       render :new
     end
-  
+  end
+
+  def show
+    @song = Song.find(params[:id])
   end
 
   def edit
-    
+    @song = Song.find(params[:id])
+  end
+
+  def index
+    @songs = Song.all
   end
   private
   
