@@ -1,5 +1,23 @@
-<ul>
-  <% @songs.each do |song| %>
-    <li><%= song.title %></li>
+<h1>Songs</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Released?</th>
+    <th>Release Year</th>
+    <th>Artist Name</th>
+    <th>Genre</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @songs.each do |s| %>
+  <tr>
+    <td><%= s.title %></td>
+    <td><%= s.released %></td>
+    <td><%= s.release_year %></td>
+    <td><%= s.artist_name %></td>
+    <td><%= s.genre %></td>
+  </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>
