@@ -1,0 +1,1 @@
+Song.create!(title: 'Hello', released: true, release_year: 2001, artist_name: 'Nathan', genre: 'bad music 420')
