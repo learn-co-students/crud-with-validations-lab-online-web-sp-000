@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Genre</th>      
+      <th>Genre</th>
       <th>Artist name</th>
       <th>Year</th>
       <th></th>
@@ -17,7 +17,7 @@
         <td><%= s.artist_name %></td>
         <td><%= s.release_year %></td>
         <td>
-          <%= link_to 'View Song', s %> or  <%= link_to 'Edit Song', edit_song_path(s) %> or <%= link_to 'Delete Song', s, method: :delete%>
+          <%= link_to 'View Song', s %> or  <%= link_to 'Edit Song', edit_song_path(s) %> or <%= link_to 'Delete Song', s, method: :delete %>
         </td>
       </tr>
     <% end %>

@@ -35,4 +35,8 @@ class SongsController < ApplicationController
     @song.destroy
     redirect_to songs_url
   end
+
+  def new
+    @song = Song.new
+  end
 end
