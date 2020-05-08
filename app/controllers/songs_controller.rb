@@ -13,8 +13,7 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.create(params.require(:song).permit!)
-    # binding.pry
-    if @song
+    if @song.valid?
       redirect_to @song
     else
       render :new
