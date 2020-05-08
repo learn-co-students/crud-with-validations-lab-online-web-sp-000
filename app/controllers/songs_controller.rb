@@ -21,10 +21,10 @@ class SongsController < ApplicationController
   end
 
   def update
-    @song = Song.update(params.require(:song).permit!)
+    @results = Song.find(params.require(:id)).update(params.require(:song).permit!)
     # binding.pry
-    if @song
-      redirect_to @song
+    if @results
+      redirect_to Song.find(params.require(:id))
     else
       render :edit
     end
