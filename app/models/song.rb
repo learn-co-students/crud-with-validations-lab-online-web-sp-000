@@ -3,10 +3,14 @@ class Song < ApplicationRecord
 
   validates :released, inclusion: { in: [true, false] }
 
-
-  validates :release_year, presence: {released: false}, allow_blank: true
-  validates :release_year, numericality: {less_than_or_equal_to: Date.today.year}
-
-
+  with_options if: :is_released? do |release|
+    release.validates :release_year, presence: true, numericality: {less_than_or_equal_to: Date.today.year}
+  end
+  
   validates :artist_name, presence: true
+
+  def is_released?
+    self.released
+  end
+
 end
