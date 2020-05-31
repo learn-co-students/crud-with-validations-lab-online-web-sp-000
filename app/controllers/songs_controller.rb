@@ -5,15 +5,15 @@ class SongsController < ApplicationController
     @songs = Song.all
   end
 
-  def show
-  end
-
   def new
     @song = Song.new
   end
 
+  def show
+  end
+
   def create
-    @song = Song.new(song_params)
+    @song = Song.new(song_params(:title, :artist_name, :released, :release_year, :artist_name, :genre))
     if @song.valid?
       @song.save
       redirect_to song_path(@song)
@@ -24,7 +24,7 @@ class SongsController < ApplicationController
 
   def update
 
-    @song.assign_attributes(song_params)
+    @song.assign_attributes(:title, :artist_name, :released, :release_year, :artist_name, :genre)
 
     if @song.valid?
       @song.save
