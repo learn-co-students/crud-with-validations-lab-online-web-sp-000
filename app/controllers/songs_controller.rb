@@ -1,10 +1,12 @@
 class SongsController < ApplicationController
    def index 
       @songs = Song.all 
+
    end 
 
    def new 
-      @song = Song.new  
+      @song = Song.new 
+       
    end 
 
    def show 
@@ -24,6 +26,11 @@ class SongsController < ApplicationController
 
    def edit 
       set_song
+      if @song.valid?
+         render :edit 
+      else 
+         redirect_to song_path(@song)
+      end 
    end 
 
    def update 
