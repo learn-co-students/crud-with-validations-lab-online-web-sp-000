@@ -5,7 +5,7 @@ class Song < ApplicationRecord
   validates :genre, presence: true
   validates :artist_name, presence: true
   validates :released, inclusion: { in: [true, false] }
-  validates :release_year, presence: true
+  
 
   with_options if: :released? do |song|
     song.validates :release_year, presence: true
