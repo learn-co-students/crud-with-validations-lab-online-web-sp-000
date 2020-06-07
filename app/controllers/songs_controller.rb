@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
 
     def index
+        @songs = Song.all
     end
 
     def show
@@ -13,10 +14,12 @@ class SongsController < ApplicationController
 
     
     def create
-        @song = Song.new(post_params)
+        binding.pry
+        @song = Song.new(params)
+        
         if @song.valid?
             @song.save
-            redirect_to song_path(@song)
+            redirect_to @song
         else
             render :new
         end
@@ -29,8 +32,8 @@ class SongsController < ApplicationController
     def update
         @song = Song.find(params[:id])
     
-        if @song.update(post_params)
-          redirect_to song_path(@song)
+        if @song.update(song_params)
+          redirect song_path(@song)
         else
           render :edit
         end
@@ -38,7 +41,7 @@ class SongsController < ApplicationController
     
       private
     
-      def post_params
+      def song_params
         params.permit(:title, :released, :release_year, :artist_name, :genre)
       end
 

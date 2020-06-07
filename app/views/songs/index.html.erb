@@ -1,6 +1,7 @@
 
 <div><%= link_to 'Create Song', new_song_path %></div>
 <% @songs.each do |song| %>
+<%= song %>
 <%= song.title %>
 
 <%= song.artist_name %>
