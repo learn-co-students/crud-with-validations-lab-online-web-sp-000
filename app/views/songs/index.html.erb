@@ -1,0 +1,12 @@
+<h1>Index</h1>
+
+<tbody>
+<% @songs.each do |song| %>
+  <tr>
+    <%= song.title %>
+    <%= link_to 'View', song %>
+    <%= link_to 'Edit', edit_song_path(song) %>
+    <%= button_to 'Delete', song, method: :delete, data: {confirm: "Confirm?"} %>
+    <% end %>
+  </tr>
+</tbody>
