@@ -26,10 +26,8 @@ class SongsController < ApplicationController
         @song = Song.find(params[:id])
         if @song.valid?
             @song.update(song_params)
-            binding.pry
             redirect_to song_path(@song)
         else
-            binding.pry
             render :edit
         end
     end
