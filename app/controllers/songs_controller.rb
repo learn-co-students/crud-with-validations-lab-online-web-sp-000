@@ -24,12 +24,17 @@ class SongsController < ApplicationController
 
     def update
         @song = Song.find(params[:id])
-        if @song.valid?
+        if @song.update(song_params)
             @song.update(song_params)
             redirect_to song_path(@song)
         else
             render :edit
         end
+    end
+
+    def destroy
+        Song.find(params[:id]).destroy
+        redirect_to songs_path
     end
 
     private
