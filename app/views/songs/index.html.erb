@@ -1,8 +1,9 @@
-<%= form_for @song do |f| %>
-    <%= f.text_field :title %>
-    <%= f.boolean :released %>
-    <%= f.integer :release_year %>
-    <%= f.text_field :arist_name %>
-    <%= f.text_field :genre %>
-    <%= f.submit %>
-<% end %>
+<tbody>
+    <% @songs.each_with_index do |song, index| %>
+        <tr>
+            <td><%= song.title %></td>
+            <td><%= song.released %></td>
+            <td><%= song.release_year %></td>
+        </tr>
+    <% end %>
+</tbody>
