@@ -2,6 +2,7 @@ class SongsController < ApplicationController
   before_action :set_song!, only: [:show, :edit, :update, :destroy]
 
   def new
+    @song = Song.new
   end
 
   def create
@@ -26,11 +27,9 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find(params[:id])
   end
 
   def edit
-    @song = Song.find(params[:id])
   end
 
   def destroy
