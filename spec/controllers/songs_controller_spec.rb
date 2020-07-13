@@ -24,17 +24,17 @@ RSpec.describe SongsController, type: :controller do
     let(:song) { Song.create!(valid_attributes) }
 
     it "lists all songs" do
-      get :index
+      get :index, xhr: true 
       expect(assigns(:songs)).to eq([song])
     end
 
     it "views a single song" do
-      get :show, params: { id: song.id }
+      get :show, params: { id: song.id }, xhr: true 
       expect(assigns(:song)).to eq(song)
     end
 
     it "fetches a song for editing" do
-      get :edit, params: { id: song.id }
+      get :edit, params: { id: song.id }, xhr: true 
       expect(assigns(:song)).to eq(song)
     end
   end
@@ -43,7 +43,7 @@ RSpec.describe SongsController, type: :controller do
     before { post :create, params: { song: valid_attributes } }
 
     it "creates a new Song" do
-      expect(Song.count).to eq(1)
+      expect(Song.count).to eq(1) 
     end
 
     it "assigns and persists new song" do
