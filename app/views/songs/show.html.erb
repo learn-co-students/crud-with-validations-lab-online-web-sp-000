@@ -1,0 +1,8 @@
+<%="Check out #{@song.title} info here:"%>
+Title: <%=@song.title%><br>
+Released: <%=@song.released%><br>
+Release Year: <%=@song.release_year%><br>
+Artist Name: <%=@song.artist_name%><br>
+Genre: <%=@song.genre%>
+<br>
+Delete: <%= link_to "Delete", @song, method: :delete, data: {confirm: "Really?"}%>
