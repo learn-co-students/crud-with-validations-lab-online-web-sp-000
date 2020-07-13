@@ -1,0 +1,22 @@
+
+[1mFrom:[0m /mnt/c/Users/CACABUTT/crud-with-validations-lab-online-web-sp-000/app/controllers/songs_controller.rb @ line 33 SongsController#update:
+
+    [1;34m29[0m: [32mdef[0m [1;34mupdate[0m
+    [1;34m30[0m: 
+    [1;34m31[0m:     set_song
+    [1;34m32[0m:     @song.update(song_params)
+ => [1;34m33[0m:     binding.pry
+    [1;34m34[0m:     [32mif[0m @song.valid?
+    [1;34m35[0m:         redirect_to song_path(@song)
+    [1;34m36[0m:     [32melse[0m
+    [1;34m37[0m:         render [33m:edit[0m
+    [1;34m38[0m:     [32mend[0m
+    [1;34m39[0m: 
+    [1;34m40[0m: [32mdef[0m [1;34mdestroy[0m
+    [1;34m41[0m:     set_song
+    [1;34m42[0m:     @song.delete
+    [1;34m43[0m:     redirect_to songs_path
+    [1;34m44[0m: [32mend[0m
+    [1;34m45[0m: 
+    [1;34m46[0m: [32mend[0m
+
