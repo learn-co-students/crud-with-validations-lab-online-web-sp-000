@@ -1,0 +1,10 @@
+<% if @songs.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@songs.errors.count, "error") %> prohibited from this song being saved: </h2>
+<ul>
+<% @songs.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
