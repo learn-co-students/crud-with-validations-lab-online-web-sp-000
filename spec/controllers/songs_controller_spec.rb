@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe SongsController, type: :controller do
   let(:valid_attributes) do
     {
-      title: "Talisman",
-      artist_name: "Air",
+      title: 'Talisman',
+      artist_name: 'Air',
       release_year: 2007,
       released: true,
-      genre: "Post-Rock"
+      genre: 'Post-Rock'
     }
   end
 
@@ -20,57 +20,57 @@ RSpec.describe SongsController, type: :controller do
     }
   end
 
-  describe "basic listing, viewing and editing" do
+  describe 'basic listing, viewing and editing' do
     let(:song) { Song.create!(valid_attributes) }
 
-    it "lists all songs" do
+    it 'lists all songs' do
       get :index
       expect(assigns(:songs)).to eq([song])
     end
 
-    it "views a single song" do
+    it 'views a single song' do
       get :show, params: { id: song.id }
       expect(assigns(:song)).to eq(song)
     end
 
-    it "fetches a song for editing" do
+    it 'fetches a song for editing' do
       get :edit, params: { id: song.id }
       expect(assigns(:song)).to eq(song)
     end
   end
 
-  context "creating a valid song" do
+  context 'creating a valid song' do
     before { post :create, params: { song: valid_attributes } }
 
-    it "creates a new Song" do
+    it 'creates a new Song' do
       expect(Song.count).to eq(1)
     end
 
-    it "assigns and persists new song" do
+    it 'assigns and persists new song' do
       expect(assigns(:song)).to be_a(Song)
       expect(assigns(:song)).to be_persisted
     end
 
-    it "redirects to the created song" do
+    it 'redirects to the created song' do
       expect(response).to redirect_to(Song.last)
     end
   end
 
-  context "creating an invalid song" do
-    before { post :create, params: { song: invalid_attributes} }
+  context 'creating an invalid song' do
+    before { post :create, params: { song: invalid_attributes } }
 
-    it "has not been persisted" do
+    it 'has not been persisted' do
       expect(assigns(:song)).to be_new_record
     end
 
-    it "re-renders the template" do
-      expect(response).to render_template("new")
+    it 're-renders the template' do
+      expect(response).to render_template('new')
     end
   end
 
-  context "updating a song with valid data" do
+  context 'updating a song with valid data' do
     let(:new_attributes) do
-      { title: "Moon Safari" }
+      { title: 'Moon Safari' }
     end
     let(:song) { Song.create!(valid_attributes) }
 
@@ -78,44 +78,43 @@ RSpec.describe SongsController, type: :controller do
       patch :update, params: { id: song.id, song: new_attributes }
     end
 
-    it "updates the song" do
+    it 'updates the song' do
       song.reload
-      expect(song.title).to eq("Moon Safari")
+      expect(song.title).to eq('Moon Safari')
     end
 
-    it "redirects to the song" do
+    it 'redirects to the song' do
       expect(response).to redirect_to(song)
     end
   end
 
-  context "updating a song with invalid data" do
+  context 'updating a song with invalid data' do
     let(:song) { Song.create!(valid_attributes) }
     before do
       patch :update, params: { id: song.id, song: invalid_attributes }
     end
 
-    it "does not persist changes" do
-      expect(song.title).to eq("Talisman")
+    it 'does not persist changes' do
+      expect(song.title).to eq('Talisman')
     end
 
     it "re-renders the 'edit' template" do
-      expect(response).to render_template("edit")
+      expect(response).to render_template('edit')
     end
   end
 
-  context "destroying a song" do
+  context 'destroying a song' do
     let(:song) { Song.create!(valid_attributes) }
     before do
       delete :destroy, params: { id: song.id }
     end
 
-    it "destroys the requested song" do
+    it 'destroys the requested song' do
       expect(Song.count).to eq(0)
     end
 
-    it "redirects to the songs list" do
+    it 'redirects to the songs list' do
       expect(response).to redirect_to(songs_url)
     end
   end
-
 end
