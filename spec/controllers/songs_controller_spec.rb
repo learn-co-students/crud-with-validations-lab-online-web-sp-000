@@ -53,6 +53,7 @@ RSpec.describe SongsController, type: :controller do
 
     it "redirects to the created song" do
       expect(response).to redirect_to(Song.last)
+      # had to songs_path to Song.last, because error was this songs.1 instead of songs/1=> Expected "http://test.host/songs/1" to be === "http://test.host/songs.1"
     end
   end
 
@@ -85,6 +86,7 @@ RSpec.describe SongsController, type: :controller do
 
     it "redirects to the song" do
       expect(response).to redirect_to(song)
+      # had to songs_path to song, because error was this songs.1 instead of songs/1=> Expected "http://test.host/songs/1" to be === "http://test.host/songs.1"
     end
   end
 
