@@ -1,0 +1,33 @@
+<h1>Songs index</h1>
+
+<%= button_to "Create new song", new_song_path, method: :get %>
+<br>
+
+<table>
+	<thead>
+		<tr>
+			<th>
+				Title
+			</th>
+			<th>
+				Artist
+			</th>
+			<th>
+				Genre
+			</th>
+			<th>
+				Release year
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @songs.each do |song| %>
+			<tr>
+				<td><%= link_to song.title, song_path(song) %></td>
+				<td><%= song.artist_name %></td>
+				<td><%= song.genre %></td>
+				<td><%= song.release_year %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
