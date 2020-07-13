@@ -1,0 +1,12 @@
+<h1>Songs index</h1>
+<tbody>
+  <% @songs.each do |s| %>    
+    <tr>
+      <div>Song ID: <%= s.id %></div><br>
+      <div>Title: <%= s.title %></div><br>
+      <div>Released: <%= s.released %></div><br>
+      <div>Artist Name: <%= s.artist_name %></div><br>
+      <div>Genre: <%= s.genre %></div><br><br>
+    </tr>
+  <% end %>
+</tbody>
