@@ -1,0 +1,14 @@
+<!-- <ul>
+  <% @songs.each do |s| %>
+    <li><%=s.title%></li>
+  <% end %>
+</ul> -->
+
+<tbody>
+  <% @songs.each do |song| %>
+    <tr>
+      <th>song.title</th>
+      <th>song.artist_name</th>
+    </tr>
+  <% end %>
+</tbody>
