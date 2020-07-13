@@ -1,0 +1,9 @@
+<tbody>
+    <% @songs.each_with_index do |song, index| %>
+        <tr>
+            <td><%= song.title %></td>
+            <td><%= song.released %></td>
+            <td><%= song.release_year %></td>
+        </tr>
+    <% end %>
+</tbody>
