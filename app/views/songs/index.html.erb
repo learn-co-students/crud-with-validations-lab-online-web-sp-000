@@ -1,0 +1,15 @@
+<h1>Songs Index</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Song Title</th>
+  </tr>
+  </thead>
+  <tbody>
+<%@songs.each do |s| %>
+  <tr>
+    <td><%=s.title%></td>
+  </tr>
+  <%end%>
+</tbody>
+</table>
