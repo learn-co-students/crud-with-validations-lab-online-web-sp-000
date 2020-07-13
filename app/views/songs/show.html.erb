@@ -1,0 +1,27 @@
+<h1>Song</h1>
+
+<h3>Title:</h3>
+<%= @song.title %>
+<h3>Release:</h3>
+<% if @song.released == false %>
+<%= "No" %>
+<% else %>
+<%= @song.release_year %><br>
+<% end %>
+<h3>Artist Name:</h3>
+<%= @song.artist_name %><br>
+<h3>Genre:</h3>
+<% if @song.genre == "" %>
+<%= "Unknow" %>
+<% else %>
+<%= @song.genre %>
+<% end %>
+<br>
+<br>
+<%= link_to "Back", '/' %><br>
+<%= link_to "Edit", edit_song_path(@song) %><br>
+<br>
+
+<%= form_tag song_path(@song.id), method: "delete" do %>
+  <%= submit_tag "Delete" %><br>
+  <% end %>

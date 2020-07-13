@@ -1,0 +1,14 @@
+<h1>Index</h1>
+<tbody>
+<% @songs.each do |song| %>
+    <tr class="song">
+        <td ><%= song.title %></td>
+        <td ><%= song.release_year %></td>
+        <td ><%= song.artist_name %></td>
+        <td ><%= song.genre %></td>
+      <td><span><%= link_to song.title, song_path(song) %></span></td>
+
+    </tr>
+<% end %>
+  </tbody>
+<%= link_to "New", 'songs/new' %>
