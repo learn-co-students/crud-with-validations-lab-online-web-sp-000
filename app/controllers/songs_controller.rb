@@ -18,7 +18,7 @@ class SongsController < ApplicationController
   end 
   
   def new
-    @song = Song.all 
+    @song = Song.new
   end 
   
   def edit 
