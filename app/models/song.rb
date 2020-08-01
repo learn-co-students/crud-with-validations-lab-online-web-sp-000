@@ -1,27 +1,20 @@
-class Song < ApplicationRecord
-
-    validates :title, :artist_name, presence: true
-    
-    validates :release_year, presence: true
-    validates :release_year, numericality: { only_integer: true}
-    validates :release_year, more_than_current_year: false
-
+class Song < ActiveRecord::Base
+    validates :title, presence: true
+    validates :title, uniqueness: {
+        scope: %i[release_year artist_name],
+        message: 'cannot be repeated by the same artist in the same year'
+    }
+    validates :released, inclusion: { in: [true, false] }
+    validates :artist_name, presence: true
+  
+    with_options if: :released? do |song|
+        song.validates :release_year, presence: true
+        song.validates :release_year, numericality: {
+            less_than_or_equal_to: Date.today.year
+        }
+    end
+  
     def released?
-        if self.released == true
-            return true
-        else
-            errors.add("Song is not yet released")
-            return false
-        end
+        released
     end
-
-    def more_than_current_year
-        if self.release_year > Time.now.year
-            errors.add("Song release year must not be in the future")
-            return true
-        else
-            return false
-        end
-    end
-
 end
