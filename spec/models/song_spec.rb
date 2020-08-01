@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe Song, type: :model do
   let(:valid_attributes) do
     {
-      title: "Talisman",
-      artist_name: "Air",
-      release_year: 2007,
+      title: "While I'm Alive",
+      artist_name: "STRFKR",
+      release_year: 2010,
       released: true,
-      genre: "Post-Rock"
+      genre: "Indie"
     }
   end
 
