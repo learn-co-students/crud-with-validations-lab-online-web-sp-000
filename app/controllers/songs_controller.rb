@@ -38,6 +38,15 @@ class SongsController < ApplicationController
         redirect_to songs_path
     end
 
+    def change_genre
+        @song = Song.new
+        # binding.pry
+    end
+
+    def update_genre
+        binding.pry
+    end
+
     private
 
     def set_song
