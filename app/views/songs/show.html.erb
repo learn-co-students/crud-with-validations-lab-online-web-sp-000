@@ -1,0 +1,5 @@
+<%= @song.title %>
+
+<%= link_to @song.title, edit_song_path(@song) %>
+<%= link_to "All Songs", songs_path %>
+<%= button_to "Delete", @image, method: :delete %>
