@@ -1,0 +1,13 @@
+<table>
+    <% @songs.map do |s| %>
+    <tbody>
+        <tr>
+            <%= s.title %>
+            <%= s.released%>
+            <%= s.release_year %>
+            <%= s.artist_name %>
+            <%= s.genre %>
+        </tr>
+    </tbody>
+    <% end %>
+</table>
