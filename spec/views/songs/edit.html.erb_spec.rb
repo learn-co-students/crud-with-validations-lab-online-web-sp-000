@@ -1,5 +1,4 @@
-require 'pry'
-require './app/models/song.rb'
+require 'rails_helper'
 
 RSpec.describe 'songs/edit', type: :feature do
   let(:song_attributes) do
@@ -11,7 +10,6 @@ RSpec.describe 'songs/edit', type: :feature do
       artist_name: 'Man With Instruments'
     }
   end
-  binding.pry
 
   let(:song) { Song.create!(song_attributes) }
 
