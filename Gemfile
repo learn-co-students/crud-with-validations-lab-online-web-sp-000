@@ -10,9 +10,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails-controller-testing'
 gem 'bootsnap'
 gem 'jquery-rails'
+gem 'pry'
 group :development, :test do
   gem 'capybara'
-  gem 'pry'
+  #gem 'pry'
 end
 
 group :development do

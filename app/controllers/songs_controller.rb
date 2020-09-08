@@ -13,6 +13,7 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params[:id])
+    binding.pry
   end
 
   def create
