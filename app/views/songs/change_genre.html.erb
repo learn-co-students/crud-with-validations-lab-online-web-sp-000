@@ -1,0 +1,9 @@
+<h1>Edit a Genre</h1>
+
+<%= form_for(@song, url: update_genre_path) do |f| %>
+
+    <label>Genre:</label><br>
+    <%= f.text_field :genre %><br><br>
+
+    <%= f.submit %>
+<% end %>
