@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Released</th>
+    <th>Released Year</th>
+    <th>Artist</th>
+    <th>Genre</th>
+    <th></th>
+  </tr>
+<tbody>
+<%@songs.each do |s|%>
+  <tr>
+    <td><%=s.title%></td>
+    <td><%=s.released%></td>
+    <td><%=s.release_year%></td>
+    <td><%=s.artist_name%></td>
+    <td><%=s.genre%></td>
+    <td>
+      <%=link_to "Edit" , edit_song_path(s)%>
+      <%=link_to "Delete" , s, method: :delete, data: { confirm: "Really?" }%>
+  </tr>
+<%end%>
+</tbody>
+</table>
