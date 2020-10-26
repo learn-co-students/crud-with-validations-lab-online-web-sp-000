@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  
+
   def index
     @songs = Song.all
   end
@@ -30,4 +30,10 @@ class SongsController < ApplicationController
     redirect_to song_path(@song)
   end
 
+  private
+
+    def song_params
+      params.require(:song).permit(:title, :released, :release_year, :artist_name, :genre)
+    end
+    
 end
