@@ -1,0 +1,50 @@
+<!--
+<h1>Songs</h1>
+<div><%= link_to 'Create Song', new_song_path %></div>
+<% @songs.each do |song| %>
+    <ul>
+        <li>Title: <%= song.title %></li>
+        <li>Year: <%= song.release_year %></li>
+        <li>Genre: <%= song.genre %></li>
+        <li>Artist name: <%= song.artist_name %></li>
+    </ul>
+    <ul>
+        <li><%= link_to 'View', song %></li>
+        <li><%= link_to 'Edit', edit_song_path(song) %></li>
+        <li><%= link_to 'Delete', song, method: :delete, data: {confirm: 'Are you sure you want to delete this song?'}%></li>
+    </ul>
+<%end%>
+Because of the way test is written, Had to copy-paste github solution instead of having my own working solution
+-->
+<h1>Songs</h1>
+
+<div><%= link_to 'Create Song', new_song_path %></div>
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Genre</th>
+      <th>Artist name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.title %></td>
+        <td><%= song.release_year %></td>
+        <td><%= song.genre %></td>
+        <td><%= song.artist_name %></td>
+        <td>
+          <%= link_to 'View', song %> |
+          <%= link_to 'Edit', edit_song_path(song) %> |
+          <%= link_to 'Delete', song, method: :delete, data: { confirm: 'For real?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

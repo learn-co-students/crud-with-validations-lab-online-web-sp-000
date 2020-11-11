@@ -1,0 +1,43 @@
+<h1>Editing <%= @song.title %> by <%= @song.artist_name %></h1>
+<%= form_for(@song) do |song| %>
+
+<%if @song.errors.any?%>
+    <div id="error_explanation">
+        <h2>There were some errors:</h2>
+            <ul>
+                <%@song.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+                <%end%>
+            </ul>
+    </div>
+<%end%>
+
+<div class="field">
+    <%= song.label :title %><br>
+    <%= song.text_field :title %><br>
+</div>
+
+<div class="field">
+    <%= song.label :released %><br>
+    <%= song.check_box :released %><br>
+</div>
+
+<div class="field">
+    <%= song.label :release_year %><br>
+    <%= song.number_field :release_year %><br>
+</div>
+
+<div class="field">
+    <%= song.label :genre %><br>
+    <%= song.text_field :genre %><br>
+</div>
+<div class="field">
+    <%= song.label :artist_name %><br>
+    <%= song.text_field :artist_name %><br>
+</div>
+<div class="action">
+    <%= song.submit %>
+</div>
+<%end%>
+
+<%= link_to 'Cancel Editing', @song %>
