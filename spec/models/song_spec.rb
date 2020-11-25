@@ -1,43 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe Song, type: :model do
-  let(:valid_attributes) do
-    {
-      title: "Talisman",
-      artist_name: "Air",
-      release_year: 2007,
-      released: true,
-      genre: "Post-Rock"
-    }
+  it "is valid" do
+    song = Song.new(title: "A song title", released: true, release_year: 1999, artist_name: "A person", genre: "pop")
+    expect(song).to be_valid
   end
 
-  let(:missing_title) { valid_attributes.except(:title) }
-  let(:missing_release_year) { valid_attributes.except(:release_year) }
-  let(:unreleased) { missing_release_year.merge(released: false) }
-  let(:future_release_year) { valid_attributes.merge(release_year: Date.today.year + 1) }
-
-  it "is valid when expected" do
-    expect(Song.new(valid_attributes)).to be_valid
+  it "is invalid with no title" do
+    song = Song.new(released: true, release_year: 1999, artist_name: "A person", genre: "pop")
+    expect(song).to be_invalid
   end
 
-  it "is invalid without title" do
-    expect(Song.new(missing_title)).to be_invalid
+  it "is invalid because released must be a boolean value" do
+    song = Song.new(title: "A song title", released: nil, release_year: 1999, artist_name: "A person", genre: "pop")
+    expect(song).to be_invalid
   end
 
-  it "is invalid without release year when released is true" do
-    expect(Song.new(missing_release_year)).to be_invalid
+  it "is invalid with no release year if released is true" do
+    song = Song.new(title: "A song title", released: true, artist_name: "A person", genre: "pop")
+    expect(song).to be_invalid
   end
 
-  it "is valid without release year when released is false" do
-    expect(Song.new(unreleased)).to be_valid
+  it "is invalid if release year is later to the current year" do
+    song = Song.new(title: "A song title", released: true, release_year: 2023, artist_name: "A person", genre: "pop")
+    expect(song).to be_invalid
   end
 
-  it "is invalid when the release year is in the future" do
-    expect(Song.new(future_release_year)).to be_invalid
+  it "is invalid with no artist name" do
+    song = Song.new(title: "A song title", released: true, release_year: 1999, genre: "pop")
+    expect(song).to be_invalid
   end
 
-  it "is invalid if an artist tries to release the same song twice in a year" do
-    Song.create!(valid_attributes)
-    expect(Song.new(valid_attributes)).to be_invalid
-  end
 end
