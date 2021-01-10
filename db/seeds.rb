@@ -1,0 +1,2 @@
+Song.create(title: "One Love", released: true, release_year: 1985, artist_name: "Bob Marley", genre: "Reggae")
+Song.create(title: "The way you are", released: true, release_year: 2015, artist_name: "Bruno Mars", genre: "Pop")
