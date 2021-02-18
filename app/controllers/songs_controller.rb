@@ -37,9 +37,7 @@ class SongsController < ApplicationController
   # PATCH/PUT /songs/1.json
   def update
     @song.update(song_params)
-    binding.pry
     if @song.valid?
-      @song.save
       redirect_to song_path(@song)
     else
       render :edit
