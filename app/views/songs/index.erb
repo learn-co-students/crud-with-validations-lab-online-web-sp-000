@@ -1,0 +1,11 @@
+<p>My Song</p>
+
+<tbody>
+<%=@songs.each do |song|%>
+<tr><%=song.title%><br></tr>
+<%=song.release_year%><br>
+<%=song.genre%><br>
+<%=song.artist_name%><br>
+
+<%end%>
+</tbody>
