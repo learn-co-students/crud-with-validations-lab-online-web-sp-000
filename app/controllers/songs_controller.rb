@@ -8,6 +8,8 @@ class SongsController < ApplicationController
   end
 
   def create
+    # raise params.inspect
+    # require 'pry'; binding.pry
     @song = Song.new(songs_params)
 
     if @song.save
@@ -22,7 +24,6 @@ class SongsController < ApplicationController
   end
 
   def update
-    # require 'pry'; binding.pry
     @song = Song.find(params[:id])
     if @song.update(songs_params)
       redirect_to song_path(@song)
@@ -32,7 +33,13 @@ class SongsController < ApplicationController
   end
 
   def show
+    @song = Song.find(params[:id])
+  end
 
+  def destroy
+    @song = Song.find(params[:id])
+    @song.destroy
+    redirect_to songs_path
   end
 
   private
