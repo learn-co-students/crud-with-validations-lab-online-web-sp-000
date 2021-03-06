@@ -10,5 +10,15 @@
 
 <%= yield %>
 
+<% unless current_page?(controller: "songs", action: "index") %>
+  <hr />
+  <%= link_to "View All Songs", songs_path %>
+<% end %>
+
+<% unless current_page?(controller: "songs", action: "new") %>
+  <hr />
+  <%= link_to "New Song", new_song_path %>
+<% end %>
+
 </body>
 </html>
