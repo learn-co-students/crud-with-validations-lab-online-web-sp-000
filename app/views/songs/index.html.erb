@@ -1,0 +1,12 @@
+<%@songs.each do |s|%>
+<table>
+<tbody>
+    <tr>
+        <td>
+        <%=s.title%>
+        <%= button_to "Delete Song", song_path(s.id), method: :delete %>
+        </td>
+    </tr>
+</tbody>
+</table>
+<%end%>
