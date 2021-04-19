@@ -1,0 +1,8 @@
+<ul><h2><%= @song.name %></h2>
+    <li><%= @song.artist_name %></li>
+    <li><%= @song.genre %></li>
+    <li><%= @song.release_year %></li>
+</ul>
+<% end %>
+
+<%= button_to "Delete Song", song_path(@song), method: delete %>
