@@ -1,10 +1,12 @@
+<h2>Editing "<%= @song.title %>"</h2>
+
 <%= form_for @song do |s| %>
   <%= s.label :title, "Song Title:"%>
   <%= s.text_field :title %><br>
 
   <p><%= s.label :released, "Has it been released?" %><br>
-  <%= s.radio_button :released, "true" %> True
-  <%= s.radio_button :released, "false" %> False<br>
+  <%= s.check_box :released, "true" %> True
+  <%= s.check_box :released, "false" %> False<br>
 </p>
 
   <%= s.label :release_year, "Release Year" %><br>
