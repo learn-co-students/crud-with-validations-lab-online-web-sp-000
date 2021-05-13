@@ -1,4 +1,4 @@
-<h2>Create A Song</h2>
+<h2>Edit A Song</h2>
 <%= form_for(@song) do |f| %>
     <% if @song.errors.any? %> 
         <div id="error_explanations">
@@ -36,4 +36,7 @@
         <%= f.text_field :genre %>
     </div>
     <br>
+
+    <%= f.submit %>
+
 <% end %>
